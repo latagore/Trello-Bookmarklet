@@ -122,6 +122,11 @@
           
           if (typeof image !== 'undefined'){
             // there is a url of the high resolution image
+            var domain = image.domain;
+            // remove the last slash of domain if it has one
+            if (domain.endsWith("/")){
+              domain = domain.substring(0, domain.length-1);
+            }
             url = domain+"/"+image.base_dir+"/"+image.dir+"/"+image.img;
           }
           
