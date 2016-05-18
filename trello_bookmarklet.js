@@ -122,7 +122,7 @@
           
           if (typeof image !== 'undefined'){
             // there is a url of the high resolution image
-            url = image.domain+"/"+image.base_dir+"/"+image.dir+"/"+image.img;
+            url = domain+"/"+image.base_dir+"/"+image.dir+"/"+image.img;
           }
           
           Trello.post("/cards/" + card.id + "/attachments", { 
