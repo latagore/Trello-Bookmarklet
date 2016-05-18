@@ -61,8 +61,14 @@
         name = $('h1 .hP').text().trim();
     
     } else if ($('#tag-sidebar').length) {
-        name = $.trim(document.title);
+        
+        var title = $.trim(document.title).substring(0, 50);
+        if (title !== document.title){
+          title += "...";
+        }
+        name = title;
         pg.isSafebooru = true;
+        
     }
     
     else {
