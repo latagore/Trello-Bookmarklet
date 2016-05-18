@@ -112,7 +112,7 @@
       }, function(card){
         if (pg.isSafebooru){
           var url = $("#image").prop("src");
-          Trello.post("/cards/" + card_id + "/attachments", { 
+          Trello.post("/cards/" + card.id + "/attachments", { 
             url: url
           });
         }
