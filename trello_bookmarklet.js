@@ -110,6 +110,7 @@
         name: name, 
         desc: desc
       }, function(card){
+        // additional card attachments
         if (pg.isSafebooru){
           var url = $("#image").prop("src");
           Trello.post("/cards/" + card.id + "/attachments", { 
