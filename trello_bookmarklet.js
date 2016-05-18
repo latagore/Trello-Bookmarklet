@@ -17,6 +17,8 @@
     var name;
     // Default description is the URL of the page we're looking at
     var desc = location.href;
+    // dictionary which indicates if a site is of a particular type
+    var pg;
 
     if(window.goBug) {
 
@@ -58,6 +60,9 @@
         // we're looking at an email in Gmail
         name = $('h1 .hP').text().trim();
     
+    } else if ($('#tag-sidebar').length) {
+        name = $.trim(document.title);
+        pg.isSafebooru = true;
     }
     
     else {
@@ -105,6 +110,12 @@
         name: name, 
         desc: desc
       }, function(card){
+        if (pg.isSafebooru){
+          var url = $("#image").prop("src");
+          Trello.post("/cards/" + card_id + "/attachments", { 
+            url: url
+          });
+        }
         // Display a little notification in the upper-left corner with a link to the card
         // that was just created
         var $cardLink = $("<a>")
