@@ -119,10 +119,18 @@
         // additional card attachments
         if (pg.isSafebooru){
           var url = $("#image").prop("src");
+          
+          if (typeof image !== 'undefined'){
+            // there is a url of the high resolution image
+            url = image.domain+"/"+image.base_dir+"/"+image.dir+"/"+image.img;
+          }
+          
           Trello.post("/cards/" + card.id + "/attachments", { 
             url: url
           });
         }
+
+
         // Display a little notification in the upper-left corner with a link to the card
         // that was just created
         var $cardLink = $("<a>")
