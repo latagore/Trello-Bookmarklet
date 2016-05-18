@@ -18,7 +18,7 @@
     // Default description is the URL of the page we're looking at
     var desc = location.href;
     // dictionary which indicates if a site is of a particular type
-    var pg;
+    var pg = {};
 
     if(window.goBug) {
 
